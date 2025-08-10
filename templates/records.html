@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Flask MySQL Records App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Play:wght@400;700&family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    h1 {
+      color: #f5f5f5;
+      text-align: center;
+      margin-top: 20px;
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 40px;
+      letter-spacing: 5px;
+    }
+    #backtohome {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      color: #d3d04f;
+      text-decoration: none;
+      font-family: "Rubik Mono One", monospace;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 10px;
+    }
+    body {
+      background-color: #0f6292;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px;
+    }
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      color: #f5f5f5;
+      font-family: "Play", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    th {
+      background-color: #17594a;
+      font-family: "Play", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+    tr:hover {
+      background-color: #17594a;
+    }
+    td.actions a {
+      color: red;
+      text-decoration: none;
+    }
+    td.actions a:hover {
+      text-decoration: underline;
+    }
+    a {
+      color: #d3d04f;
+      text-decoration: none;
+    }
+    a:hover {
+      color: black;
+    }
+  </style>
+  <body>
+    <h1>Gamers List</h1>
+    <table border="1">
+      <tr>
+        <th>Player ID</th>
+        <th>Username</th>
+        <th>Rank</th>
+        <th>Wins</th>
+        <th>Win Rate</th>
+        <th>Kill Rate</th>
+        <th>Clan ID</th>
+        <th>Remove</th>
+      </tr>
+      {% for record in records %}
+      <tr>
+        <td>{{ record[0] }}</td>
+        <td>{{ record[1] }}</td>
+        <td>{{ record[2] }}</td>
+        <td>{{ record[3] }}</td>
+        <td>{{ record[4] }}</td>
+        <td>{{ record[5] }}</td>
+        <td>{{ record[6] }}</td>
+        <td><a href="/remove_record/{{ record[0] }}">Remove</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a id="backtohome" href="/dashboard">Back to Home</a>
+  </body>
+</html>

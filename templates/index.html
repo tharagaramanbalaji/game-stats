@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Flask MySQL Records App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Play:wght@400;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<head>
+    <style>
+      .title-card {
+        text-align: center;
+        color: #d3d04f;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 35px;
+        margin: 0;
+        padding-top: 20px;
+        letter-spacing: 5px;
+        font-size: 40px;
+        
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0f6292;
+      }
+
+      p {
+        font-family: "Rubik Mono One", monospace;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        color: #d3d04f;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        font-size: 18px;
+        padding-bottom: 8px;
+      }
+
+
+      .form {
+        width: 50%;
+      }
+
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      .form-container h1 {
+        margin-top: 0;
+      }
+      label {
+        color: #e3ba77;
+        margin-right: 10px;
+        width: 100px;
+        text-align: right;
+        font-family: "Play", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        
+      }
+      input[type="text"] {
+        width: 200px;
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="number"] {
+        width: 200px;
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        margin-left: 20px;
+        padding: 10px;
+        background-color: #d3d04f;
+        color: #17594a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Play", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+
+      }
+      button:hover {
+        background-color: #17594a;
+        color: #d3d04f;
+      }
+
+      .image {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+      }
+      .image img {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+
+      a {
+        color: #17594a;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+        font-family: "Play", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+
+      }
+      a:hover {
+        color: black;
+      }
+
+      .form-row {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        
+      }
+
+    </style>
+</head>
+  <body>
+    <div class="image">
+      <img src="/static/images.jpeg" alt="coding pic" width="300px" />
+      <img
+        src="/static/secondimage.jpeg"
+        alt="coding pic other"
+        width="250px"
+      />
+    </div>
+
+    <h1 class="title-card">Gamer Arena</h1>
+    <p>
+      Welcome to the add records page where you can add your profile<br>
+      and see how you rank with other players
+    </p>
+    <div class="container">
+      <form action="/add_record" method="POST">
+        <div class="form-row">
+          <label for="playerID">PlayerID:</label>
+          <input type="number" id="playerID" name="playerID" required />
+        </div>
+
+        <div class="form-row">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-row">
+          <label for="rank">Rank:</label>
+          <input type="text" id="rank" name="rank" required/>
+        </div>
+
+        <div class="form-row">
+          <label for="wins">Wins:</label>
+          <input type="text" id="wins" name="wins" required />
+        </div>
+        <div class="form-row">
+          <label for="winrate">Winrate:</label>
+          <input type="text" id="winrate" name="winrate" required />
+        </div>
+
+        <div class="form-row">
+          <label for="killrate">Killrate:</label>
+          <input type="text" id="killrate" name="killrate" required />
+        </div>
+
+        <div class="form-row">
+          <label for="clanid">Clanid:</label>
+          <input type="text" id="clanid" name="clanid" required /><br>
+          <button type="submit">Submit the Record</button>
+        </div>
+
+        
+      </form>
+    </div>
+    <div class="end-card">
+      <h1 class="title-card">View your position</h1>
+    </div>
+    <div class="nav">
+      <a href="/view_records"><button>Leaderboard</button></a>
+      <a  href="/dashboard"><button>Home</button></a>
+    </div>
+  </body>
+</html>
